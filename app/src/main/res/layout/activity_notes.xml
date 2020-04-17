@@ -7,19 +7,20 @@
     tools:context=".Notes">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText_Title"
         android:layout_width="373dp"
         android:layout_height="46dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Titulo Nota"
+        android:onClick="guardarNota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editText_note"
         android:layout_width="369dp"
         android:layout_height="496dp"
         android:layout_marginBottom="13dp"
@@ -27,13 +28,14 @@
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text="Empieza a escribir"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:background="@color/colorNote"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_Title" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_save"
         android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginTop="13dp"
@@ -46,6 +48,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_note" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
