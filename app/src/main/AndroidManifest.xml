@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Configuration"></activity>
+        <activity
+            android:name=".CreateTest"
+            android:label="@string/title_activity_create_test"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity android:name=".Configuration" />
         <activity android:name=".NoteAct" />
         <activity android:name=".TestAct" />
         <activity android:name=".SmartAct" />
