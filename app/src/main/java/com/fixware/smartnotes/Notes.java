@@ -27,7 +27,7 @@ public class Notes extends AppCompatActivity {
 
         editTextNote = (EditText) findViewById(R.id.editText_note);
         editTextTitle = (EditText) findViewById(R.id.editText_Title);
-        btn_save = (Button) findViewById(R.id.btn_save);
+
 
 
 
@@ -39,12 +39,14 @@ public class Notes extends AppCompatActivity {
 
 
     public void guardarNota(View v){
+        Toast.makeText(this, "El boton se activo", Toast.LENGTH_SHORT).show();
         try {
 
             OutputStreamWriter file = new OutputStreamWriter(openFileOutput(editTextTitle.getText().toString(), Activity.MODE_PRIVATE));
             file.write(editTextNote.getText().toString());
             file.flush();
             file.close();
+            Toast.makeText(this, "El archivo se cerro", Toast.LENGTH_SHORT).show();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

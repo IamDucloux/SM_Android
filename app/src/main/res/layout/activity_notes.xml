@@ -14,7 +14,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Titulo Nota"
-        android:onClick="guardarNota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +40,7 @@
         android:layout_marginTop="13dp"
         android:background="@color/colorPrimary"
         android:text="Guardar Nota"
-
+        android:onClick="guardarNota"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
