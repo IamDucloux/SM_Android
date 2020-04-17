@@ -3,6 +3,7 @@ package com.fixware.smartnotes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class SmartAct extends AppCompatActivity {
     private Button btn_notes;
     private Button btn_config;
     private Button btn_act;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerViewNotes;
     private NoteRecycleViewAdapter noteRecycleViewAdapter;
     public String notes [];
@@ -32,6 +34,7 @@ public class SmartAct extends AppCompatActivity {
         btn_notes = (Button) findViewById(R.id.buttonNote);
         btn_config = (Button) findViewById(R.id.buttonConf);
         recyclerViewNotes = (RecyclerView) findViewById(R.id.RecyclerNotes);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.SW_Notes);
         notes = fileList();
 
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
@@ -67,10 +70,21 @@ public class SmartAct extends AppCompatActivity {
         noteRecycleViewAdapter = new NoteRecycleViewAdapter(getNotes());
         recyclerViewNotes.setAdapter(noteRecycleViewAdapter);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                noteRecycleViewAdapter = new NoteRecycleViewAdapter(getNotes());
+                recyclerViewNotes.setAdapter(noteRecycleViewAdapter);
+
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
 
     }
 
     public List<Note> getNotes(){
+        notes = fileList();
         List<Note> note = new ArrayList<>();
         for (String s: notes
              ) {
@@ -95,6 +109,17 @@ public class SmartAct extends AppCompatActivity {
         ;
     }*/
 
+    public void goNote(View v){
+        btn_notes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(SmartAct.this, NoteAct.class);
+                startActivity(intent);
+
+            }
+        });
+    }
 
 
 }

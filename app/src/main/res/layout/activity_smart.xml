@@ -10,8 +10,8 @@
         android:id="@+id/buttonTest"
         android:layout_width="135dp"
         android:layout_height="80dp"
-        android:text="Test"
         android:background="@color/colorPrimary"
+        android:text="Test"
         android:textColor="#ffffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -29,26 +29,12 @@
         app:layout_constraintStart_toEndOf="@+id/buttonTest" />
 
     <Button
-        android:id="@+id/btn_act"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@color/colorPrimary"
-        android:text="Actualizar"
-        android:textColor="#ffffffff"
-        android:onClick="ActNotes"
-        app:layout_constraintBottom_toTopOf="@+id/buttonNote"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/buttonConf"
         android:layout_width="135dp"
         android:layout_height="80dp"
+        android:background="@color/colorPrimary"
         android:text="Configuracion"
         android:textColor="#ffffffff"
-        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -56,25 +42,35 @@
         android:id="@+id/textViewNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="185dp"
+        android:layout_marginTop="16dp"
         android:text="Notas"
-        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerNotes"
-        android:layout_width="377dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_act"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/SW_Notes"
+        android:layout_width="375dp"
+        android:layout_height="568dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNote"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNotes">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="256dp"
+            android:scrollbars="horizontal" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
