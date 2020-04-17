@@ -1,6 +1,8 @@
 package com.fixware.smartnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SmartAct extends AppCompatActivity {
     private Button btn_test;
     private Button btn_notes;
     private Button btn_config;
     private Button btn_act;
-    private EditText editTextNotes;
+    private RecyclerView recyclerViewNotes;
+    private NoteRecycleViewAdapter noteRecycleViewAdapter;
     public String notes [];
 
     @Override
@@ -25,17 +31,16 @@ public class SmartAct extends AppCompatActivity {
         btn_test = (Button) findViewById(R.id.buttonTest);
         btn_notes = (Button) findViewById(R.id.buttonNote);
         btn_config = (Button) findViewById(R.id.buttonConf);
-
-        editTextNotes = (EditText) findViewById(R.id.editText_Result);
+        recyclerViewNotes = (RecyclerView) findViewById(R.id.RecyclerNotes);
         notes = fileList();
 
-
+        recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
 
         btn_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(SmartAct.this, Test.class);
+                Intent intent = new Intent(SmartAct.this, TestAct.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +49,7 @@ public class SmartAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(SmartAct.this, Notes.class);
+                Intent intent = new Intent(SmartAct.this, NoteAct.class);
                 startActivity(intent);
 
             }
@@ -59,12 +64,28 @@ public class SmartAct extends AppCompatActivity {
             }
         });
 
-
+        noteRecycleViewAdapter = new NoteRecycleViewAdapter(getNotes());
+        recyclerViewNotes.setAdapter(noteRecycleViewAdapter);
 
 
     }
 
-    public void updateNotes(View v){
+    public List<Note> getNotes(){
+        List<Note> note = new ArrayList<>();
+        for (String s: notes
+             ) {
+            note.add(new Note(s,"Futura version",R.mipmap.ic_launcher_foreground));
+        }
+
+        return note;
+    }
+
+    public void ActNotes(View v){
+        noteRecycleViewAdapter = new NoteRecycleViewAdapter(getNotes());
+        recyclerViewNotes.setAdapter(noteRecycleViewAdapter);
+    }
+
+    /*public void updateNotes(View v){
         Toast.makeText(this, "El boton se activo", Toast.LENGTH_SHORT).show();
         notes = fileList();
         editTextNotes.setText(null);
@@ -72,7 +93,7 @@ public class SmartAct extends AppCompatActivity {
             editTextNotes.setText(editTextNotes.getText().toString()+"\n"+s);
         }
         ;
-    }
+    }*/
 
 
 

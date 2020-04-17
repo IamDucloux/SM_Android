@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Configuration"></activity>
-        <activity android:name=".Notes" />
-        <activity android:name=".Test" />
+        <activity android:name=".NoteAct" />
+        <activity android:name=".TestAct" />
         <activity android:name=".SmartAct" />
         <activity android:name=".MainActivity">
             <intent-filter>

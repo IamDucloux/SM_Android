@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-public class Notes extends AppCompatActivity {
+public class NoteAct extends AppCompatActivity {
 
     private EditText editTextNote;
     private EditText editTextTitle;
