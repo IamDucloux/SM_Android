@@ -4,19 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="320dp"
-        android:text="Presiona para iniciar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Presiona para iniciar" />
 
     <TextView
         android:id="@+id/textView"
@@ -24,7 +13,8 @@
         android:layout_height="wrap_content"
         android:text="SmartNotes"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="60dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,39 +22,26 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.03" />
 
-    <TextView
-        android:id="@+id/ByFix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="By"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.169" />
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="235dp"
-        android:layout_height="211dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="360dp"
+        android:layout_height="333dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_foreground" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="158dp"
-        android:layout_height="285dp"
+    <TextView
+        android:id="@+id/LabelVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="22dp"
+        android:text="@string/app_version"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/fware2" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

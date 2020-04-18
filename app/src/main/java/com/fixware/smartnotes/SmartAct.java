@@ -81,7 +81,11 @@ public class SmartAct extends AppCompatActivity {
         });
 
 
+
+
     }
+
+    
 
     public List<Note> getNotes(){
         notes = fileList();
