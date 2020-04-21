@@ -1,5 +1,6 @@
 package com.fixware.smartnotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -80,6 +82,41 @@ public class SmartAct extends AppCompatActivity {
             }
         });
 
+        recyclerViewNotes.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+                try {
+                    View child = recyclerViewNotes.findChildViewUnder(e.getX(), e.getY());
+
+                    if (child != null ){
+                        int pos =recyclerViewNotes.getChildAdapterPosition(child);
+                        //Toast.makeText(SmartAct.this, "Tocaste el item "+pos, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SmartAct.this, NoteAct.class);
+                        intent.putExtra("NoteTitle", getNotes().get(pos).getTitle());
+                        startActivity(intent);
+
+
+                    }
+
+                }catch (Exception ex){
+                    Toast.makeText(SmartAct.this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                return true;
+            }
+
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
 
 
 
