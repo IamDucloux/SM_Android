@@ -25,7 +25,6 @@
                 android:id="@+id/textView_NoteTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
                 android:layout_marginTop="16dp"
                 android:text="TextView"
                 android:textAlignment="center"
@@ -33,34 +32,28 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView_test"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView_QuestionNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="61dp"
                 android:layout_marginEnd="177dp"
                 android:layout_marginBottom="17dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toTopOf="@+id/textView_Topic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView_Test"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView_Topic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="17dp"
                 android:layout_marginEnd="177dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView_Test"
                 app:layout_constraintTop_toBottomOf="@+id/textView_QuestionNumber" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

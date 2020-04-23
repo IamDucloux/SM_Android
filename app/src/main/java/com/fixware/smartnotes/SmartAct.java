@@ -8,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class SmartAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart);
 
+
+
         btn_test = (Button) findViewById(R.id.buttonTest);
         btn_notes = (Button) findViewById(R.id.buttonNote);
         btn_config = (Button) findViewById(R.id.buttonConf);
@@ -40,6 +43,8 @@ public class SmartAct extends AppCompatActivity {
         notes = fileList();
 
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         btn_test.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,23 +90,23 @@ public class SmartAct extends AppCompatActivity {
         recyclerViewNotes.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
             public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-
                 try {
                     View child = recyclerViewNotes.findChildViewUnder(e.getX(), e.getY());
 
                     if (child != null ){
+
                         int pos =recyclerViewNotes.getChildAdapterPosition(child);
                         //Toast.makeText(SmartAct.this, "Tocaste el item "+pos, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SmartAct.this, NoteAct.class);
                         intent.putExtra("NoteTitle", getNotes().get(pos).getTitle());
                         startActivity(intent);
 
-
                     }
 
                 }catch (Exception ex){
                     Toast.makeText(SmartAct.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
+
 
                 return true;
             }
@@ -122,7 +127,12 @@ public class SmartAct extends AppCompatActivity {
 
     }
 
-    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) super.finish();
+
+        return true;
+    }
 
     public List<Note> getNotes(){
         notes = fileList();
