@@ -2,7 +2,7 @@
 
 **Sistema administrador de notas de estudio.**
 
-**Beta 1.0**
+**Alpha 1.0**
 ___
 
 Created by **Ian Ducloux** 
